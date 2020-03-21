@@ -1,6 +1,7 @@
 FROM golang:1.13-alpine3.10 as builder
 ADD . /go/src/github.com/telia-oss/github-pr-resource
 WORKDIR /go/src/github.com/telia-oss/github-pr-resource
+RUN apk add --no-cache curl
 RUN curl -sL https://taskfile.dev/install.sh | sh
 RUN ./bin/task build
 
